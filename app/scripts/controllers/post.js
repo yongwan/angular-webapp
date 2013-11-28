@@ -3,8 +3,8 @@
 
     angular.module('angularWebApp')
         .controller('PostCtrl',
-            ['$scope',
-            function ($scope) {
+            ['$scope', 'postFactory',
+            function ($scope, postFactory) {
                 $scope.page = {
                     title: 'Post Title',
                     tagline: 'Post TagLine'
@@ -15,5 +15,11 @@
                     'POST 2',
                     'POST 3'
                 ];
+
+                postFactory.get({responseType: 'text'}, function (response) {
+                    $scope.awesomeThings.push(response);
+                }, function (error) {
+                    // $scope.awesomeThings.push(error);
+                });
             }]);
 }(angular));

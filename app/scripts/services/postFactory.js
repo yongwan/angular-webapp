@@ -1,16 +1,11 @@
 'use strict';
 
 angular.module('angularWebApp')
-    .factory('postFactory', ['$resource', function ($resource) {
-        // Service logic
-        // ...
-
-        var meaningOfLife = 42;
-
-        // Public API here
-        return {
-            someMethod: function () {
-                return meaningOfLife;
-            }
-        };
+    .factory('postFactory', ['$resource', '$routeParams' , function ($resource, $routeParams) {
+        return $resource('/posts/:year-:month-:day-:title.md', {
+            year: $routeParams.year,
+            month: $routeParams.month,
+            day: $routeParams.day,
+            title: $routeParams.title,
+        });
     }]);

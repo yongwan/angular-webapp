@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: PostCtrl', function () {
 
     // load the controller's module
     beforeEach(module('angularWebApp'));
 
-    var MainCtrl, scope;
+    var PostCtrl, scope;
 
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
-        MainCtrl = $controller('MainCtrl', {
+        PostCtrl = $controller('PostCtrl', {
             $scope: scope
         });
     }));

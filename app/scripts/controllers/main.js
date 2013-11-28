@@ -1,22 +1,23 @@
 (function (angular) {
     'use strict';
 
-    angular.module('angularWebApp').controller('MainCtrl',
-        ['$scope', 'appConstants',
-        function ($scope, appConstants) {
-            $scope.site = appConstants.site;
+    angular.module('angularWebApp')
+        .controller('MainCtrl',
+            ['$scope', 'appConstant',
+            function ($scope, appConstant) {
+                $scope.site = appConstant.site;
 
-            $scope.navs = appConstants.navs;
+                $scope.navs = appConstant.navs;
 
-            $scope.page = {
-                title: 'Page Title',
-                tagline: 'Page Tagline'
-            };
+                $scope.page = {
+                    title: 'Page Title',
+                    tagline: 'Page Tagline'
+                };
 
-            $scope.awesomeThings = [
-                'HTML5 Boilerplate',
-                'AngularJS',
-                'Karma'
-            ];
-        }]);
+                $scope.awesomeThings = [
+                    'HTML5 Boilerplate',
+                    'AngularJS',
+                    'Karma'
+                ];
+            }]);
 }(angular));

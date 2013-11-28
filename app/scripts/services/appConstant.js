@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('angularWebApp')
-        .constant('appConstants', {
+        .constant('appConstant', {
             site: {
                 title: '/* LIFE RUNS ON CODE */',
                 author: {

@@ -13,8 +13,8 @@
                 controller: 'MainCtrl'
             })
             .when('/posts/:year/:month/:day/:title', {
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
+                templateUrl: 'views/post.html',
+                controller: 'PostCtrl'
             })
             .otherwise({
                 redirectTo: '/'

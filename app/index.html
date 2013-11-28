@@ -20,22 +20,21 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="angularWebApp">
+<body ng-app="angularWebApp" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <!--[if lt IE 9]>
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div ng-include="'views/header.html'" ng-controller="MainCtrl"></div>
+    <div ng-include="'views/header.html'"></div>
 
     <!-- Add your site or application content here -->
     <div class="container bs-docs-container" ng-view=""></div>
 
-    <div ng-include="'views/footer.html'" ng-controller="MainCtrl"></div>
+    <div ng-include="'views/footer.html'"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -55,19 +54,23 @@
 
     <!-- build:js scripts/plugins.js -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <script src="bower_components/js-yaml/js-yaml.js"></script>
     <!-- endbuild -->
-
     <!-- build:js scripts/modules.js -->
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <!-- endbuild -->
-
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/services/appConstants.js"></script>
+    <script src="scripts/services/appConstant.js"></script>
+
+    <script src="scripts/controllers/post.js"></script>
+    <script src="scripts/services/postFactory.js"></script>
     <!-- endbuild -->
 </body>
 </html>

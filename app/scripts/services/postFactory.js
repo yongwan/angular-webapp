@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('angularWebApp')
-    .factory('postFactory', ['$resource', '$routeParams' , function ($resource, $routeParams) {
-        return $resource('/posts/:year-:month-:day-:title.md', {
-            year: $routeParams.year,
-            month: $routeParams.month,
-            day: $routeParams.day,
-            title: $routeParams.title,
-        });
+    .factory('postFactory', ['$http', '$routeParams', function ($http, $routeParams) {
+        return {
+            get: function (callback) {
+                return $http.get('/posts/' + $routeParams.year + '-' + $routeParams.month + '-' + $routeParams.day + '-' + $routeParams.title + '.md').success(function (data) {
+                    marked(data, function (err, content) {
+                        callback(content);
+                    });
+                });
+            }
+        };
     }]);

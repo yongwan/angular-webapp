@@ -13,11 +13,5 @@
                     title: 'Page Title',
                     tagline: 'Page Tagline'
                 };
-
-                $scope.awesomeThings = [
-                    'HTML5 Boilerplate',
-                    'AngularJS',
-                    'Karma'
-                ];
             }]);
 }(angular));

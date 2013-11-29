@@ -5,7 +5,9 @@ angular.module('angularWebApp')
         return {
             get: function (callback) {
                 return $http.get('/posts/' + $routeParams.year + '-' + $routeParams.month + '-' + $routeParams.day + '-' + $routeParams.title + '.md').success(function (data) {
-                    marked(data, function (err, content) {
+                    var markdown = /---([\s\S]*)---([\s\S]*)/.exec(data);
+                    
+                    marked(markdown[2], function (err, content) {
                         callback(content);
                     });
                 });

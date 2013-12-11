@@ -8,6 +8,7 @@
                 postFactory.get(function (response) {
                     $scope.page.title = response.title;
                     $scope.page.tagline = response.tagline;
+                    $scope.page.postDate = response.postDate;
                     $scope.page.content = response.content;
                     $scope.page.tags = response.tags;
                     $scope.page.categories = response.categories;

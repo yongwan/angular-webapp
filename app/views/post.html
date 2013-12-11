@@ -2,7 +2,9 @@
     <div class="page-header">
         <h1>{{page.title}} <small>{{page.tagline}}</small></h1>
     </div>
-
+    <div class="date">
+        <span>{{ page.postDate }}</span>
+    </div>
     <div class="row-fluid">
         <div class="span12">
             <div class="content" ng-bind-html="page.content"></div>

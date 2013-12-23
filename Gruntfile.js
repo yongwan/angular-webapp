@@ -299,6 +299,12 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    convert_json: {
+      categories: {
+        src: '<%= yeoman.app %>/posts/{,*/}*.md',
+        dist: '<%= yeoman.app %>/categories/'
+      }
     }
   });
 
@@ -344,4 +350,36 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerMultiTask('convert_json', function () {
+    //make grunt know this task is async.
+    //var done = this.async();
+    grunt.log.writeln(this.target);
+
+    var jsyaml = require('js-yaml');
+    this.files.forEach(function (file) {
+      var contents = file.src.filter(function (filepath) {
+        grunt.log.writeln(filepath);
+        // Remove nonexistent files (it's up to you to filter or warn here).
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn('Source file "' + filepath + '" not found.');
+          return false;
+        } else {
+          return true;
+        }
+      }).map(function (filepath) {
+        // Read and return the file's source.
+        return grunt.file.read(filepath);
+      });
+
+      var yaml = jsyaml.load(/---([\s\S]*)---([\s\S]*)/.exec(contents)[1]);
+      
+
+      // Write joined contents to destination filepath.
+      //grunt.file.write(file.dest, contents);
+      // Print a success message.
+      grunt.log.writeln(yaml.title);
+    });
+    //done();
+  });
 };

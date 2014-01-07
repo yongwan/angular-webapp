@@ -300,10 +300,10 @@ module.exports = function (grunt) {
         }
       }
     },
-    convert_json: {
-      categories: {
+    jekyll: {
+      markdown: {
         src: '<%= yeoman.app %>/posts/{,*/}*.md',
-        dist: '<%= yeoman.app %>/categories/'
+        dist: '<%= yeoman.dist %>'
       }
     }
   });
@@ -351,14 +351,19 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerMultiTask('convert_json', function () {
+  grunt.registerMultiTask('jekyll', function () {
     //make grunt know this task is async.
     //var done = this.async();
     grunt.log.writeln(this.target);
 
     var jsyaml = require('js-yaml');
+
+    var contents = [];
+    var yamls = [];
+    var markdowns = [];
+
     this.files.forEach(function (file) {
-      var contents = file.src.filter(function (filepath) {
+      contents = file.src.filter(function (filepath) {
         grunt.log.writeln(filepath);
         // Remove nonexistent files (it's up to you to filter or warn here).
         if (!grunt.file.exists(filepath)) {
@@ -371,15 +376,22 @@ module.exports = function (grunt) {
         // Read and return the file's source.
         return grunt.file.read(filepath);
       });
+    });
 
-      var yaml = jsyaml.load(/---([\s\S]*)---([\s\S]*)/.exec(contents)[1]);
-      
-
+    grunt.log.writeln('contents length : ' + contents.length);
+    contents.forEach(function (content) {
+      var jekyllMarkdown = /---([\s\S]*)---([\s\S]*)/.exec(content);
+      var yaml = jsyaml.load(jekyllMarkdown[1]);
+      yamls.push(yaml);
+      markdowns.push(jekyllMarkdown[2]);
       // Write joined contents to destination filepath.
       //grunt.file.write(file.dest, contents);
       // Print a success message.
       grunt.log.writeln(yaml.title);
     });
-    //done();
+
+    grunt.log.writeln('yamls length : ' + yamls.length);
+    grunt.log.writeln('markdowns length : ' + markdowns.length);
+    //done(true);
   });
 };

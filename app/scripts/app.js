@@ -12,10 +12,10 @@
         templateUrl: 'views/main.html',
         controller: 'SiteCtrl'
       })
-      //.when('/archive', {
-      //  templateUrl: 'views/archive.html',
-      //  controller: 'MainCtrl'
-      //})
+      .when('/archive', {
+        templateUrl: 'views/archive.html',
+        controller: 'ArchiveCtrl'
+      })
       //.when('/categories', {
       //  templateUrl: 'views/categories.html',
       //  controller: 'MainCtrl'

@@ -3,7 +3,7 @@
 describe('Service: Postfactory', function () {
 
   // load the service's module
-    beforeEach(module('angularWebApp'));
+  beforeEach(module('angularWebApp'));
 
   // instantiate service
   var Postfactory;

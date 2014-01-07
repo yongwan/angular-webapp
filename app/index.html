@@ -3,12 +3,12 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" ng-app="angularWebApp" ng-controller="SiteCtrl" ng-cloak>
+<html class="no-js" ng-app="angularWebApp" ng-controller="SiteCtrl">
 <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ site.title }}</title>
+  <title ng-bind="site.title"></title>
   <meta name="description" content="{{ site.description }}">
   <meta name="author" content="{{ site.author.name }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,6 +74,7 @@
   <script src="scripts/services/postFactory.js"></script>
 
   <script src="scripts/services/pageFactory.js"></script>
+  <script src="scripts/controllers/archive.js"></script>
   <!-- endbuild -->
 </body>
 </html>

@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Error loading type library/DLL. (Exception from HRESULT: 0x80029C4A (TYPE_E_CANTLOADLIBRARY))"
 categories: ["applications"]
 tags: ["error", "0x80029C4A", "TYPE_E_CANTLOADLIBRARY"]
 ---
+
+# Error loading type library/DLL. (Exception from HRESULT: 0x80029C4A (TYPE_E_CANTLOADLIBRARY))
+___
 
 다른 컴퓨터에서는 정상적으로 돌아가는 데 유독 DEMO를 하려는 Machine에서만 아래와 같은 Error가 났다.
 

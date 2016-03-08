@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Dispose, garbage collection and finalization"
 categories: [".net", "csharp"]
 tags: ["c#", "dispose", "garbage collection", "finalization"]
 ---
+
+# Dispose, garbage collection and finalization
+___
 
 객체의 생성 및 소멸과 관련해서 수정을 해야할 일이 있어서 공부를 좀 해야겠다 싶어 검색을 하다가 찾은 괜찮은 [포스팅][Dispose]. 이라기 보단 답변.
  

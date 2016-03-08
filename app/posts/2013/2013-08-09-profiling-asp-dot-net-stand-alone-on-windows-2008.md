@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Windows 2008 서버에서 ASP.NET Profiling"
 categories: [".net", "asp.net"]
 tags: ["profiling", "asp.net", "asp.net mvc", "visual studio", "windows 2008", "vsp 7008"]
 ---
+
+# Windows 2008 서버에서 ASP.NET Profiling
+___
 
 요즘은 Performance Test 때문에 몇몇 팀원이 바쁘다.
 나는 다행히(?)도 그쪽 일을 하고 있지 않아 한가한데 여차저차해서 Visual Studio Profiling 기능이 팀의 이슈가 되었다.
@@ -64,7 +66,7 @@ tags: ["profiling", "asp.net", "asp.net mvc", "visual studio", "windows 2008", "
 [VS2010PerformanceTool]: http://www.microsoft.com/ko-kr/download/details.aspx?id=23205
 [SymbolServer]: http://msdn.microsoft.com/en-us/library/89axdy6y(v=vs.100).aspx
 [MetabaseErrorFix]: http://blogs.msdn.com/b/profiler/archive/2010/07/23/tip-fixing-vsperfaspnetcmd-metabase-errors.aspx
-[ServerManager]: /assets/attachments/2013-08-09-profiling-error/WindowsFeatureOn2008_001.png
-[AddRoleService]: /assets/attachments/2013-08-09-profiling-error/WindowsFeatureOn2008_002.png
+[ServerManager]: /posts/2013/2013-08-09-profiling-error/WindowsFeatureOn2008_001.png
+[AddRoleService]: /posts/2013/2013-08-09-profiling-error/WindowsFeatureOn2008_002.png
 [ExcelKorean]: http://blog.daum.net/sualchi/13720149
 [StandAloneProfilingKor]: http://plantrue.tistory.com/24

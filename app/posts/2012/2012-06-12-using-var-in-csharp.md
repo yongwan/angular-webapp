@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "C# - var 키워드의 사용"
 categories: [".net", "csharp"]
 tags: ["c#", "var"]
 ---
+
+# C# - var 키워드의 사용
+___
 
 UK와 code review를 서로 하고 있는데 UK의 Comment에서 var keyword를 사용하지 말라는 언급이 있어서 Googling. 과연? 왜? 어떤 경우에?
 

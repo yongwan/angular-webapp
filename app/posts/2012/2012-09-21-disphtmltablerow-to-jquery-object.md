@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "DispHtmlTableRow to jQuery object"
 categories: ["common tech", "jquery"]
 tags: ["jquery", "disphtmltablerow", "closest", "parents"]
 ---
+
+# DispHtmlTableRow to jQuery object
+___
 
 jQuery에서 셀렉트된 체크박스가 있는 Row의 특정 칼럼을 접근해야하는 로직이 필요했다.
 
@@ -15,10 +17,10 @@ jQuery에서 셀렉트된 체크박스가 있는 Row의 특정 칼럼을 접근�
 
 여튼 아래의 것이 결론.
 
-{% highlight javascript linenos=table %}
+```javascript
 $($(".gridRowSelection:checked").closest("tr")[0]).find("td[column='Remarks']").val("aa");
 $($(".gridRowSelection:checked").closest("tr")[0]).find("td[column='Remarks']").text("aa");
-{% endhighlight %}
+```
 
 참고로 `parents()`와 `closest()`의 차이는 위에 있는 모른 부모를 가져오는 것과 위에 있는 가장 가까운 부모를 가져온다는 것.
 
@@ -28,8 +30,8 @@ $($(".gridRowSelection:checked").closest("tr")[0]).find("td[column='Remarks']").
 
 다른 많은 방법도 있겠지만 굳이 저렇게 번거롭게 변환할 필요없이 아래와 같이 사용하는 것이 더 괜찮은 방법이었을 거 같다.
 
-{% highlight javascript linenos=table %}
+```javascript
 $(".gridRowSelection:checked").closest("tr").first().find("td[column='Remarks']").val("aa");
-{% endhighlight %}
+```
 
 [GetJqueryObject]: http://stackoverflow.com/questions/7017584/get-jquery-object-from-html-string

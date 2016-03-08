@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Visual Studio Tips & Tricks"
 categories: ["applications", "visual studio"]
 tags: ["visual studio 2010", "tip", "Productivity Power Tools", "팁"]
 ---
+
+# Visual Studio Tips & Tricks
+___
 
 꽤 괜찮은 팁이 많이 있는 영상이 올라와서 소개.
 

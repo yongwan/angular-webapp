@@ -1,16 +1,15 @@
-'use strict';
+(function (angular) {
+  'use strict';
 
-angular.module('angularWebApp')
-  .factory('pageFactory', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
-  });
+  angular.module('angularWebApp')
+    .factory('pageFactory', ['$http', '$routeParams', '$filter', function ($http, $routeParams, $filter) {
+      var postsUrl = '/posts/pages.json';
+      return {
+        get: function (callback) {
+          return $http.get(postsUrl).success(function (data) {
+            callback(data);
+          });
+        }
+      };
+    }]);
+}(angular));

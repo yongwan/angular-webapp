@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Cross-Site Request Forgery(CSRF) in ASP.NET MVC"
 categories: [".net", "asp.net mvc"]
 tags: ["cross site request forgery", "csrf", "asp.net mvc"]
 ---
+
+# Cross-Site Request Forgery(CSRF) in ASP.NET MVC
+___
 
 한국어로는 [사이트 간 요청 위조][CSRF_kor].
 정상적으로 생성된 쿠키를 이용해서 특정 사이트를 공격하는 방법.
@@ -14,22 +16,22 @@ tags: ["cross site request forgery", "csrf", "asp.net mvc"]
 [Prevent Cross-Site Request Forgery (CSRF) using ASP.NET MVC’s AntiForgeryToken() helper][AntiForgeryTokenHelper]
 
 간단하게 말하면 aspx의 **form에는 [Html.AntiForgeryToken()][MSDN_AntiForgeryToken]**을 사용하고
-{% highlight csharp %}
-<% using(Html.Form("Item", "Submit")) { %>
+```cs
+<% using(Html.Form("UserProfile", "SubmitUpdate")) { %>
     <%= Html.AntiForgeryToken() %>
     <!-- etc -->
 <% } %>
-{% endhighlight %}
+```
 
 Controller의 해당 **POST action에는 [ValidateAntiForgeryTokenAttribute][MSDN_ValidateAntiForgeryToken]**를 사용하면 된다.
-{% highlight csharp %}
+```cs
 [HttpPost]
 [ValidateAntiForgeryToken]
 public ViewResult Submit()
 {
     // etc
 }
-{% endhighlight %}
+``` 
 
 이렇게 공격하겠다고 생각한 해커도 대단한 듯;;
 

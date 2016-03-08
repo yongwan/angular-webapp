@@ -5,7 +5,11 @@
     'ngRoute',
     'ngCookies',
     'ngResource',
-    'ngSanitize'
+    'ngSanitize',
+    'ngAnimate',
+    'ui.bootstrap',
+    'hc.marked'
+    //'mgcrea.ngStrap'
   ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -35,5 +39,17 @@
       .otherwise({
         redirectTo: '/'
       });
-  }]);
+  }]).config(['markedProvider', function (markedProvider) {
+    markedProvider.setOptions({
+      gfm: true,
+      tables: true,
+      highlight: function (code, lang) {
+        if (lang) {
+          return hljs.highlight(lang, code, true).value;
+        } else {
+          return hljs.highlightAuto(code).value;
+        }
+      }
+    });
+  }]);;
 }(angular));

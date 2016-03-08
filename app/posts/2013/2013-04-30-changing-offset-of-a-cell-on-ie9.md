@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "IE9에서 Table의 한 Row에서 특정 Cell의 Offset이 달라지는 현상"
 categories: ["common tech", "jquery"]
 tags: ["jquery", "ajax", "html", "table", "offset", "ie9"]
 ---
+
+# IE9에서 Table의 한 Row에서 특정 Cell의 Offset이 달라지는 현상
+___
 
 조건 : 브라우저 모드 - IE9, 문서 모드 - IE9
 
@@ -18,7 +20,7 @@ Data의 Property 값을 변경하면 또 정상적으로 보이기도 하고.
 원인은 IE9에서 writespace에 대한 parsing을 정상적으로 하지 못한 다는 것.
 그래서 적용한 방법이 링크의 댓글들 중 jquery plug-in으로 되어 있는 녀석.
 
-{% highlight javascript linenos=table %}
+```javascript
 jQuery.fn.htmlClean = function() {
 	this.contents().filter(function() {
 		if (this.nodeType != 3) {
@@ -31,7 +33,7 @@ jQuery.fn.htmlClean = function() {
 	}).remove();
 	return this;
 }
-{% endhighlight %}
+```
 
 Web Browser에 따라서 고려해야할 부분이 산더미 같은데 IE Version별로도 고려해야할 게 산더미다.
 

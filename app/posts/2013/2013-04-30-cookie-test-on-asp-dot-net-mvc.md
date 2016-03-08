@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "ASP .NET MVC에서 HttpContext를 이용한 Cookie Test"
 categories: [".net", "asp.net mvc"]
 tags: [".net", "asp.net mvc", "test", "cookie"]
 ---
+
+# ASP .NET MVC에서 HttpContext를 이용한 Cookie Test
+___
 
 Controller에서 내부에서 Cookie 값을 읽고 써야하는 부분이 필요하게 되었는데,
 기존의 코드가 System.Web.HttpContext.Current를 사용하여 Cookie값을 읽어오고 있었다.

@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "[LINQ] 프로퍼티를 이용한 중복 제거 ( Distinct by property )"
 categories: [".net", "csharp"]
 tags: ["c#", "linq", "distinct", "프로퍼티", "중복제거"]
 ---
+
+# [LINQ] 프로퍼티를 이용한 중복 제거 ( Distinct by property )
+___
 
 특정 프로퍼티(property)를 대상으로 중복을 제거해야 하는 데 어떻게 하면 LINQ를 이용해서 할 수 있을까.
 나름 생각한 것이 프로퍼티만 뽑아서 중복제거 후에 원래의 List와 Join을 하는 방법이었는데 이게 안 먹더라.

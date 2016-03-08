@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Javascript 정리"
 categories: ["common tech", "javascript"]
 tags: ["javascript", "정리"]
 ---
+
+# Javascript 정리
+___
 
 머 내가 장대한 글을 적으려는 건 아니고 github에서 괜찮은 포스팅(?)을 찾아서 링크를 걸려는 중.
 

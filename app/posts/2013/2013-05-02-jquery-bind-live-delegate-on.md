@@ -1,9 +1,11 @@
 ---
-layout: post
 title: ".bind(), .live(), .delegate() and on()"
 categories: ["common tech", "jquery"]
 tags: ["jquery", "live", "click", "on"]
 ---
+
+# .bind(), .live(), .delegate() and on()
+___
 
 개발하고 있는 source에서 `.click()`이랑 `.live('click', ...)`을 섞어서 사용하고 있더라.
 갑자기 문득 어떤 방법이 더 좋은 방법인가 하고 찾아보다가 괜찮은 블로깅을 발견! +_+

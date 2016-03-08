@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Design Guidelines for Exceptions"
 categories: [".net", "csharp"]
 tags: ["c#", "exception"]
 ---
+
+# Design Guidelines for Exceptions
+___
 
 ASP.NET MVC에서 Exception 처리와 표현에 대해서 토의가 있었지만 현재까지는 결론없이 끝났다.
 결국은 UK의 결정에 따라 가겠지만 일단 우리 내부적으로 어떻게 해야할 지 그리고 그 근거는 어디에 있는지 이야기할 필요가 있다고 생각되는 한 편. 기본을 제대로 이해하지 못하고 무턱대고 삽질하는 것보다 기본을 먼저 아는 것이 필요하겠다 싶어서 예전에 봤었지만 다시한 번 정독.
@@ -25,7 +27,7 @@ ASP.NET MVC에서 Exception 처리와 표현에 대해서 토의가 있었지만
 + Argument가 적절하지 않는 녀석이 왔다면 ArgumentException 또는 그 것을 상속받은 Exception을 던져라. 가능하면 가장 하위의 Exception을 사용.
 + ParamName property에 값을 넣어라.
 + Property의 setter에서는 ParamName으로 "value"를 사용해라.
-{% highlight csharp linenos=table %}
+```cs
 set
 {
 	if(value == null)
@@ -34,7 +36,7 @@ set
 	}
 	address = value;
 }
-{% endhighlight %}
+```
 + public API에서 NullReferenceException, AccessViolationException, InvalidCastException 또는 IndexOutOfRangeException을 명시적 또는 암시적으로 던지지 못하게 하라. 이러한 Exception들을 던지는 것을 피하기 위해서 Argument들을 check하라.
 
 #### StackOverflowException, OutOfMemoryException, ComException, SEHException and ExecutionEngineException.

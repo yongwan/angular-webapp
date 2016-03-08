@@ -303,7 +303,7 @@ module.exports = function (grunt) {
     jekyll: {
       markdown: {
         src: '<%= yeoman.app %>/posts/{,*/}*.md',
-        dist: '<%= yeoman.dist %>'
+        dest: '<%= yeoman.app %>/posts/pages.json'
       }
     }
   });
@@ -354,16 +354,18 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('jekyll', function () {
     //make grunt know this task is async.
     //var done = this.async();
+
     grunt.log.writeln(this.target);
 
     var jsyaml = require('js-yaml');
 
     var contents = [];
     var yamls = [];
-    var markdowns = [];
+    var pagesJson = {};
+    pagesJson.posts = [];
 
     this.files.forEach(function (file) {
-      contents = file.src.filter(function (filepath) {
+      file.src.filter(function (filepath) {
         grunt.log.writeln(filepath);
         // Remove nonexistent files (it's up to you to filter or warn here).
         if (!grunt.file.exists(filepath)) {
@@ -374,24 +376,26 @@ module.exports = function (grunt) {
         }
       }).map(function (filepath) {
         // Read and return the file's source.
-        return grunt.file.read(filepath);
+        var content = grunt.file.read(filepath);
+
+        var jekyllMarkdown = /---([\s\S]*)---([\s\S]*)/.exec(content);
+        var yaml = jsyaml.load(jekyllMarkdown[1]);
+
+        var result = yaml;
+        result.filepath = filepath;
+        // app/posts/2012/2012-05-11-xsd-string-data-types.md -> /posts/2012/05/11/xsd-string-data-types
+        result.url = filepath.replace(/^app\/(posts)\/((19|20)\d\d)\/((19|20)\d\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])-(.*).md$/, "/$1/$4/$6/$7/$8");
+        // app/posts/2012/2012-05-11-xsd-string-data-types.md -> 2012-05-11
+        result.date = filepath.replace(/^app\/(posts)\/((19|20)\d\d)\/((19|20)\d\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])-(.*).md$/, "$4-$6-$7");
+        result.excerpt = jekyllMarkdown[2].split('\r\n\r\n')[2];
+
+        pagesJson.posts.unshift(result);
       });
-    });
 
-    grunt.log.writeln('contents length : ' + contents.length);
-    contents.forEach(function (content) {
-      var jekyllMarkdown = /---([\s\S]*)---([\s\S]*)/.exec(content);
-      var yaml = jsyaml.load(jekyllMarkdown[1]);
-      yamls.push(yaml);
-      markdowns.push(jekyllMarkdown[2]);
       // Write joined contents to destination filepath.
-      //grunt.file.write(file.dest, contents);
-      // Print a success message.
-      grunt.log.writeln(yaml.title);
+      grunt.file.write(file.dest, JSON.stringify(pagesJson));
     });
 
-    grunt.log.writeln('yamls length : ' + yamls.length);
-    grunt.log.writeln('markdowns length : ' + markdowns.length);
     //done(true);
   });
 };

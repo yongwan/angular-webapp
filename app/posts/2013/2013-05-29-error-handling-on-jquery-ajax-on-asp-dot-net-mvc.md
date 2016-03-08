@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "ASP.NET MVC + jQuery AJAX 에서의 Error Handling"
 categories: [".net", "asp.net mvc"]
 tags: ["asp.net mvc", "jquery"]
 ---
+
+# ASP.NET MVC + jQuery AJAX 에서의 Error Handling
+___
 
 자. 우리 팀에서 결론 없이 무한루프를 돌고 있는 이야기를 시작해야겠다.
 안타깝게도 결론은 UK팀에서 내겠지만.

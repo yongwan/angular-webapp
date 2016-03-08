@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "LINQ와 생산성"
 categories: [".net", "csharp"]
 tags: ["c#", "linq", "procutivity", "생산성"]
 ---
+
+# LINQ와 생산성
+___
 
 LINQ와 관련해서 괜찮은 포스팅이 MSDN에 있어서 오랜만에 끄적거려 봄.
 

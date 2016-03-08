@@ -1,27 +1,15 @@
 <div class="container bs-docs-container">
-  <div class="page-header">
-    <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
-  </div>
-  <div class="date">
-    <span>{{ page.postDate }}</span>
-  </div>
-
-  <div class="content" ng-bind-html="page.content"></div>
+  
+  <div class="content" marked="post.content"></div>
 
   <ul class="list-inline">
     <li><i class="glyphicon glyphicon-folder-open"></i></li>
-    <li ng-repeat="category in page.categories">{{ category }}</li>
+    <li ng-repeat="category in post.categories">{{ category }}</li>
   </ul>
   <ul class="list-inline">
     <li><i class="glyphicon glyphicon-tags"></i></li>
-    <li ng-repeat="tag in page.tags">{{ tag }}</li>
+    <li ng-repeat="tag in post.tags">{{ tag }}</li>
   </ul>
-  <!--<ul class="pagination">
-    <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
-    <li class="prev disabled"><a>&larr; Previous</a></li>
-    <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-    <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
-    <li class="next disabled">
-      <a>Next &rarr;</a>
-  </ul>-->
+  
+  <uib-pagination total-items="page.posts.length" items-per-page="page.itemsPerPage" ng-model="page.currentPage" max-size="page.maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true" ng-change="pageChanged()"></uib-pagination>
 </div>

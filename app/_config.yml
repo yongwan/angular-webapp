@@ -11,10 +11,10 @@ author:
   facebook: yongwan.jo
 
 navs:
-  - { title: Archive, url: /archive }
-  - { title: Categories, url: /categories }
-  - { title: Tags, url: /tags }
-  - { title: About, url: /about }  
+  - { title: Archive, url: "#/archive" }
+  - { title: Categories, url: "#/categories" }
+  - { title: Tags, url: "#/tags" }
+  - { title: About, url: "#/about" }  
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #

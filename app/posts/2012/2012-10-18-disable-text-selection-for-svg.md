@@ -1,9 +1,11 @@
 ---
-layout: post
 title: "Disable text selection for SVG"
 categories: ["common tech", "svg"]
 tags: ["svg", "disable text selection", "글자선택기능방지"]
 ---
+
+# Disable text selection for SVG
+___
 
 문득 SVG파일에다가 WaterMark를 동적으로 넣어햐 하게 되었다.
 간단하게 Status에 따른 WaterMark를 넣어야 하는데 어떻게 저떻게 구글링을 해서 Water Mark넣는 데는 성공!
@@ -17,9 +19,9 @@ tags: ["svg", "disable text selection", "글자선택기능방지"]
 댓글을 보면 `pointer-events=none`이라는 문구가 나오는 데 요놈을 사용하니까 된다아아아~.
 [W3C의 문서][PointerEvents]를 참조하면 더 자세한 내용을 알수가 있다.
 
-{% highlight html linenos=table %}
+```html
 <text pointer-events=none>AAA</text>
-{% endhighlight %}
+```
 
 머 이런식.
 

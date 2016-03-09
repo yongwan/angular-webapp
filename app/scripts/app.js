@@ -8,6 +8,7 @@
     'ngSanitize',
     'ngAnimate',
     'ui.bootstrap',
+    'angular.filter',
     'hc.marked'
     //'mgcrea.ngStrap'
   ]).config(['$routeProvider', function ($routeProvider) {
@@ -16,7 +17,7 @@
         templateUrl: 'views/main.html',
         controller: 'SiteCtrl'
       })
-      .when('/archive', {
+      .when('/archive/:year?', {
         templateUrl: 'views/archive.html',
         controller: 'ArchiveCtrl'
       })

@@ -240,7 +240,16 @@ module.exports = function (grunt) {
           flatten: true,
           cwd: '<%= yeoman.app %>/bower_components',
           dest: '<%= yeoman.dist %>/fonts',
-          src: 'bootstrap/dist/fonts/*'
+          src: 'bootstrap/fonts/*'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            '_config.yml',
+            '.nojekyll',
+            'posts/**'
+          ]
         }]
       },
       styles: {
@@ -249,7 +258,8 @@ module.exports = function (grunt) {
         dest: '.tmp',
         src: ['styles/{,*/}*.css',
             'bower_components/bootstrap/dist/css/bootstrap.css',
-            'bower_components/bootstrap/dist/css/bootstrap-theme.css'
+            'bower_components/bootstrap/dist/css/bootstrap-theme.css',
+            'bower_components/highlightjs/styles/vs.css'
         ]
       }
     },
@@ -314,6 +324,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'jekyll',
       'clean:server',
       'concurrent:server',
       'autoprefixer',
@@ -336,6 +347,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
+    'jekyll',
     'copy:dist',
     'cdnify',
     'ngmin',
